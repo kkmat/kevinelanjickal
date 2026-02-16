@@ -301,7 +301,7 @@ section {
 .section-light .leader-card .desc { color: var(--text-dark-muted); }
 .section-light .leader-card .meta { color: var(--text-dark-muted); }
 .section-light .leader-card img { border: 1px solid var(--border-dark); }
-.section-light .leader-card img.logo-light { background: var(--dark-4); border-color: transparent; }
+.section-light .leader-card img.logo-light { background: #333; border: 1px solid rgba(255,255,255,0.1); }
 .section-light .timeline::before { background: var(--border-dark); }
 .section-light .timeline-item::before { box-shadow: 0 0 0 4px var(--cream), 0 0 0 5px rgba(201,169,110,0.3); }
 .section-light .timeline-role { color: var(--text-dark); }
@@ -501,7 +501,8 @@ section {
 }
 .leader-card:hover img { transform: scale(1.05); }
 .leader-card img.logo-light {
-  background: var(--dark-4);
+  background: #333;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 .leader-card .role {
   color: var(--gold);
@@ -987,6 +988,18 @@ section {
   background: var(--white);
   border: 1px solid var(--border-dark);
   object-fit: contain;
+}
+.detail-content .company-logo.logo-has-bg {
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 8px;
+  object-fit: cover;
+  height: 56px;
+}
+.detail-content .company-logo.logo-light {
+  background: #333;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 .detail-content .detail-meta {
   display: flex;
