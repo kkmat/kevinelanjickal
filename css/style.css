@@ -603,6 +603,16 @@ section {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.08);
 }
+.edu-card-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  filter: grayscale(20%);
+  transition: filter 0.4s var(--ease);
+}
+.edu-card:hover .edu-card-img { filter: grayscale(0%); }
 .edu-card h4 {
   font-size: 0.95rem;
   margin-bottom: 0.4rem;
@@ -646,6 +656,72 @@ section {
   font-weight: 400;
   font-size: 0.7rem;
   color: rgba(255,255,255,0.5);
+}
+
+/* ===================== RESEARCH PAPERS ===================== */
+.research-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+.research-card {
+  background: var(--white);
+  border: 1px solid var(--border-dark);
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+.research-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+.research-card .research-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(122,90,30,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.research-card .research-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--gold-on-light);
+  fill: none;
+}
+.research-card h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  line-height: 1.3;
+}
+.research-card .research-meta {
+  font-size: 0.75rem;
+  color: var(--text-dark-muted);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+.research-card .research-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold-on-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: gap 0.3s var(--ease), color 0.3s;
+}
+.research-card .research-link:hover {
+  gap: 0.6rem;
+  color: var(--dark);
 }
 
 /* ===================== BEYOND WORK ===================== */
@@ -714,6 +790,18 @@ section {
   color: var(--text-muted);
   font-size: 0.875rem;
   line-height: 1.7;
+}
+.beyond-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  filter: grayscale(20%);
+  transition: filter 0.4s var(--ease);
+}
+.beyond-card:hover .beyond-card-img {
+  filter: grayscale(0%);
 }
 
 /* Tech project cards */
@@ -882,6 +970,25 @@ section {
   color: var(--text-muted);
 }
 .footer-info-item svg { width: 18px; height: 18px; flex-shrink: 0; stroke: var(--gold); }
+
+.footer-qr {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-qr img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background: var(--white);
+  padding: 4px;
+}
+.footer-qr span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
 
 .footer-socials {
   display: flex;
@@ -1129,6 +1236,9 @@ section {
     gap: 3rem;
   }
   .beyond-grid {
+    grid-template-columns: 1fr;
+  }
+  .research-cards {
     grid-template-columns: 1fr;
   }
   .section-number {
