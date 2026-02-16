@@ -1,52 +1,52 @@
-// Kevin Elanjickal — vanilla JS
+// Kevin Elanjickal — Premium Portfolio JS
 (function () {
   'use strict';
 
-  // Navbar scroll behaviour
+  // ==================== NAV SCROLL ====================
   var nav = document.querySelector('.nav');
   if (nav) {
-    window.addEventListener('scroll', function () {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-    // Trigger on load for detail pages
-    nav.classList.toggle('scrolled', window.scrollY > 50);
+    var handleScroll = function () {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
   }
 
-  // Mobile menu toggle
+  // ==================== MOBILE MENU OVERLAY ====================
   var toggle = document.querySelector('.nav-toggle');
-  var links = document.querySelector('.nav-links');
-  if (toggle && links) {
+  var overlay = document.querySelector('.nav-overlay');
+  if (toggle && overlay) {
     toggle.addEventListener('click', function () {
-      toggle.classList.toggle('active');
-      links.classList.toggle('open');
+      var isActive = toggle.classList.toggle('active');
+      overlay.classList.toggle('active', isActive);
+      document.body.style.overflow = isActive ? 'hidden' : '';
     });
-    // Close on link click
-    links.querySelectorAll('a').forEach(function (a) {
+    overlay.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
         toggle.classList.remove('active');
-        links.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
       });
     });
   }
 
-  // Scroll reveal (Intersection Observer)
-  var reveals = document.querySelectorAll('.reveal');
+  // ==================== SCROLL REVEAL ====================
+  var reveals = document.querySelectorAll('.reveal, .reveal-stagger');
   if (reveals.length && 'IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
+    var revealObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
-    reveals.forEach(function (el) { observer.observe(el); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(function (el) { revealObserver.observe(el); });
   } else {
-    // Fallback: show all
     reveals.forEach(function (el) { el.classList.add('visible'); });
   }
 
-  // Typing effect
+  // ==================== TYPING EFFECT ====================
   var typedEl = document.querySelector('.hero-typed');
   if (typedEl) {
     var strings = ['Entrepreneur', 'Strategic Leadership', 'Digital Transformation'];
@@ -59,7 +59,7 @@
       var current = strings[idx];
       if (deleting) {
         charIdx--;
-        speed = 30;
+        speed = 35;
       } else {
         charIdx++;
         speed = 80;
@@ -68,12 +68,12 @@
       typedEl.innerHTML = current.substring(0, charIdx) + '<span class="cursor"></span>';
 
       if (!deleting && charIdx === current.length) {
-        speed = 1500;
+        speed = 2000;
         deleting = true;
       } else if (deleting && charIdx === 0) {
         deleting = false;
         idx = (idx + 1) % strings.length;
-        speed = 400;
+        speed = 500;
       }
 
       setTimeout(type, speed);
@@ -81,7 +81,7 @@
     type();
   }
 
-  // Smooth scroll for anchor links
+  // ==================== SMOOTH SCROLL ====================
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var href = a.getAttribute('href');
@@ -96,7 +96,7 @@
     });
   });
 
-  // Accordion
+  // ==================== ACCORDION ====================
   document.querySelectorAll('.accordion-toggle').forEach(function (btn) {
     btn.addEventListener('click', function () {
       btn.classList.toggle('open');
@@ -109,7 +109,52 @@
     });
   });
 
-  // Detail pages: force scrolled nav on load
+  // ==================== COUNTER ANIMATION ====================
+  var counters = document.querySelectorAll('.stat-num');
+  if (counters.length && 'IntersectionObserver' in window) {
+    var counterObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var text = el.textContent.trim();
+          var suffix = text.replace(/[0-9]/g, '');
+          var target = parseInt(text);
+          if (isNaN(target)) return;
+          var duration = 1500;
+          var start = 0;
+          var startTime = null;
+
+          function animate(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target) + suffix;
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              el.textContent = target + suffix;
+            }
+          }
+          requestAnimationFrame(animate);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (el) { counterObserver.observe(el); });
+  }
+
+  // ==================== HERO PARALLAX ====================
+  var heroBg = document.querySelector('.hero-bg');
+  if (heroBg) {
+    window.addEventListener('scroll', function () {
+      var scrolled = window.scrollY;
+      if (scrolled < window.innerHeight) {
+        heroBg.style.transform = 'translateY(' + (scrolled * 0.3) + 'px) scale(1.1)';
+      }
+    }, { passive: true });
+  }
+
+  // ==================== DETAIL PAGE NAV ====================
   if (document.querySelector('.detail-hero')) {
     if (nav) nav.classList.add('scrolled');
   }

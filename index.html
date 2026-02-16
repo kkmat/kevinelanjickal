@@ -4,12 +4,11 @@
   <meta charset="utf-8">
   <title>Kevin Elanjickal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kevin Elanjickal - Deputy Managing Director at Nexus Engineering based in Kuwait. Leading multi-disciplinary businesses across oil & gas, construction, aviation, and real estate with operations in Kuwait, Oman, and the UAE.">
-  <meta name="keywords" content="Kevin Elanjickal, Deputy Managing Director, General Manager, PMP, DBA, Engineering Management, Kuwait, Oil & Gas, Digital Transformation">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text x='50' y='68' font-size='55' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>KE</text></svg>">
+  <meta name="description" content="Kevin Elanjickal — Deputy Managing Director at Nexus Engineering. Leading multi-disciplinary businesses across oil & gas, construction, aviation, and real estate with operations in Kuwait, Oman, and the UAE.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23c9a96e'/><text x='50' y='68' font-size='55' font-family='Arial,sans-serif' font-weight='bold' fill='%230a0a0a' text-anchor='middle'>KE</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -31,23 +30,38 @@
     </div>
   </nav>
 
+  <!-- Fullscreen Mobile Nav Overlay -->
+  <div class="nav-overlay">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#beyond">Beyond Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+
   <!-- Hero -->
   <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Kevin Elanjickal</h1>
+      <h1>Kevin<br>Elanjickal</h1>
       <p class="hero-title">Deputy Managing Director</p>
       <div class="hero-typed"></div>
+      <div class="hero-line"></div>
     </div>
     <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+      <span>Scroll</span>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
     </a>
   </section>
 
-  <!-- About -->
-  <section id="about">
+  <!-- 01. About -->
+  <section id="about" class="section-dark">
+    <div class="section-number">01</div>
     <div class="container">
       <div class="section-header reveal">
-        <h2>About</h2>
+        <div class="section-label">About</div>
+        <h2>Building businesses<br>across borders.</h2>
         <div class="section-line"></div>
       </div>
       <div class="about-grid reveal">
@@ -93,18 +107,19 @@
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience" class="section-alt">
+  <!-- 02. Experience -->
+  <section id="experience" class="section-light">
+    <div class="section-number">02</div>
     <div class="container">
       <div class="section-header reveal">
-        <h2>Experience</h2>
-        <p>Professional career across a family business portfolio and engineering management.</p>
+        <div class="section-label">Experience</div>
+        <h2>Career across engineering<br>& enterprise.</h2>
+        <p>Professional career spanning a family business portfolio, engineering management, and international operations.</p>
         <div class="section-line"></div>
       </div>
 
-      <!-- Leadership Roles -->
-      <h3 class="subsection-title reveal">Leadership Roles</h3>
-      <div class="leadership-cards reveal">
+      <div class="subsection-label reveal">Leadership Roles</div>
+      <div class="leadership-cards reveal-stagger">
         <a href="work-nexus-dmd.html" class="leader-card" style="text-decoration:none;color:inherit">
           <img src="img/nexus.png" alt="Nexus Engineering">
           <div class="role">Deputy Managing Director</div>
@@ -128,8 +143,7 @@
         </a>
       </div>
 
-      <!-- Career Timeline -->
-      <h3 class="subsection-title reveal">Career Timeline</h3>
+      <div class="subsection-label reveal">Career Timeline</div>
       <div class="timeline reveal">
         <div class="timeline-item">
           <div class="timeline-date">Feb 2021 - Present</div>
@@ -195,16 +209,18 @@
     </div>
   </section>
 
-  <!-- Education & Credentials -->
-  <section id="education">
+  <!-- 03. Education & Credentials -->
+  <section id="education" class="section-light">
+    <div class="section-number">03</div>
     <div class="container">
       <div class="section-header reveal">
-        <h2>Education & Credentials</h2>
+        <div class="section-label">Education & Credentials</div>
+        <h2>Academic foundation<br>& professional recognition.</h2>
         <div class="section-line"></div>
       </div>
 
-      <h3 class="subsection-title reveal">Academic</h3>
-      <div class="education-grid reveal">
+      <div class="subsection-label reveal">Academic</div>
+      <div class="education-grid reveal-stagger">
         <div class="edu-card">
           <h4>Doctor of Business Administration</h4>
           <div class="edu-school">MBA London</div>
@@ -232,7 +248,7 @@
         </div>
       </div>
 
-      <h3 class="subsection-title reveal" style="text-align:center">Professional</h3>
+      <div class="subsection-label reveal" style="display:block;text-align:center">Professional</div>
       <div class="cred-badges reveal">
         <div class="cred-badge">PMP <span>Project Management Institute, Dec 2020</span></div>
         <div class="cred-badge">KSE <span>Kuwait Society of Engineers, Feb 2021</span></div>
@@ -242,12 +258,13 @@
     </div>
   </section>
 
-  <!-- Beyond Work -->
-  <section id="beyond" class="section-alt">
+  <!-- 04. Beyond Work -->
+  <section id="beyond" class="section-dark">
+    <div class="section-number">04</div>
     <div class="container">
       <div class="section-header reveal">
-        <h2>Beyond Work</h2>
-        <p>Personal achievements, tech projects, and the human side.</p>
+        <div class="section-label">Beyond Work</div>
+        <h2>Personal achievements<br>& the human side.</h2>
         <div class="section-line"></div>
       </div>
 
@@ -261,7 +278,7 @@
       </div>
 
       <!-- ECIS + Showjumping -->
-      <div class="beyond-grid reveal">
+      <div class="beyond-grid reveal-stagger">
         <div class="beyond-card">
           <h4>ECIS Award</h4>
           <p>International Understanding Award — European Council for International Schools (Apr 2015)</p>
@@ -273,8 +290,8 @@
       </div>
 
       <!-- Tech Projects -->
-      <h3 class="subsection-title reveal">Tech Projects</h3>
-      <div class="tech-cards reveal">
+      <div class="subsection-label reveal">Tech Projects</div>
+      <div class="tech-cards reveal-stagger">
         <div class="tech-card gradient-1">
           <div class="tech-card-icon">&#9654;</div>
           <h4>Video Automation Pipeline</h4>
@@ -369,13 +386,13 @@
     </div>
   </section>
 
-  <!-- Contact / Footer -->
+  <!-- 05. Contact / Footer -->
   <footer class="footer" id="contact">
     <div class="container">
       <div class="footer-grid">
-        <div>
+        <div class="reveal">
           <h3>Get in Touch</h3>
-          <p>Feel free to reach out for professional inquiries, collaborations, or opportunities.</p>
+          <p>Open to professional inquiries, collaborations, and opportunities.</p>
           <div class="footer-buttons">
             <a href="mailto:kkmat3@gmail.com" class="btn btn-primary">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -387,7 +404,7 @@
             </a>
           </div>
         </div>
-        <div>
+        <div class="reveal">
           <h3>Info</h3>
           <div class="footer-info-item">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
