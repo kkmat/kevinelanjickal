@@ -408,6 +408,30 @@
     });
   });
 
+  // ==================== PHASE 5: SHIMMER ON SECTION HEADERS ====================
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    // Add shimmer-text class to all section header h2 elements
+    document.querySelectorAll('.section-header h2').forEach(function (h2) {
+      h2.classList.add('shimmer-text');
+    });
+
+    var shimmerObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          // Small delay so reveal animation plays first
+          setTimeout(function () {
+            entry.target.classList.add('shimmer-active');
+          }, 600);
+          shimmerObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.shimmer-text').forEach(function (el) {
+      shimmerObserver.observe(el);
+    });
+  }
+
   // ==================== COUNTER ANIMATION ====================
   var counters = document.querySelectorAll('.stat-num');
   if (counters.length && 'IntersectionObserver' in window) {
